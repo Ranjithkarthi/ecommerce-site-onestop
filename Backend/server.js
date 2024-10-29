@@ -15,7 +15,15 @@ connectDb()
 connectCloudinary()
 //middlewares
 app.use(express.json()) 
-app.use(cors())
+
+// app.use(cors())
+// Configure CORS to allow only the frontend URL
+app.use(cors({
+  origin: "https://onestop-frontend.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,  // Set to true if the frontend includes cookies or authentication headers
+}));
   
 //Api End points
 
