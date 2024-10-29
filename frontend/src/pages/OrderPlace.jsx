@@ -5,7 +5,7 @@ import { assets } from '../assets/assets'
 import { ShopContext } from '../context/ShopContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import orderModel from '../../../Backend/models/orderModel'
+// import orderModel from '../../../Backend/models/orderModel'
 
 const OrderPlace = () => {
   const [method, setMethod] = useState('cod');
@@ -91,24 +91,6 @@ const OrderPlace = () => {
 
     }
   }
-
-  const verifyStripe = async (req, res) => {
-    const {orderId, success, userId} = req.body;
-    try{
-      if(success==="true") {
-        await orderModel.findByIdAndUpdate(orderId, {payment:true});
-        await userModel.findByIdAndUpdate(userId, {cartData: {}})
-        res.json({success: true})
-      } else {
-        await orderModel.findByIdAndDelete(orderId)
-        res.json({success.false})
-      }
-    } catch(error) {
-        console.log(error)
-        res.json({success.false, message:error.message})
-    }
-  }
-
 
   return (
     <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h[80vh] border-t'>
