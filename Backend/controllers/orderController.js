@@ -1,7 +1,7 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 import Stripe from "stripe";
-import razorpay from "razorpay";
+// import razorpay from "razorpay";
 
 //Global variables
 const currency = "inr";
