@@ -1,4 +1,4 @@
-Simport React from 'react'
+import React from 'react'
 import Tittle from '../components/Tittle'
 import { assets } from '../assets/assets'
 import NewsLetterBox from '../components/NewsLetterBox'
